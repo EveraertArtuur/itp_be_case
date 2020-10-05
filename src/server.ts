@@ -4,6 +4,7 @@ import { compute } from "./compute";
 
 const app = express();
 const Joi = require("@hapi/joi");
+const { uuid } = require('uuidv4');
 
 let arrayValidate = Joi.array()
   .items(
@@ -22,7 +23,7 @@ app.post("/compute", (request, response) => {
     return response.status(400);
   } else {
     const score = compute(game);
-    return response.status(200).json({ score: score });
+    return response.status(200).json({ score: score, id : uuid() });
   }
 });
 
