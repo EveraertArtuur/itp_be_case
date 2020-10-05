@@ -1,5 +1,6 @@
 import { Game, Frame, LastFrame } from "./types";
 
+
 export function compute(game: Game): number {
   return game
     .map((e) =>
