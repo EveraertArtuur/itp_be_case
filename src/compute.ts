@@ -1,7 +1,7 @@
 import { Game, Frame, LastFrame } from "./types";
 
 export function compute(game: Game): number {
-  return game
+  return Array.from(game)
     .map((e) =>
       isNormalFrame(e) ? calculateNormal(e, game) : calculateLast(e)
     )

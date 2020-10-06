@@ -15,16 +15,16 @@ let arrayValidate = Joi.array()
 
 app.use(express.json());
 
-app.post("/compute", (request, response) => {
+app.post("/compute", async (request, response) => {
   const game = request.body.game;
   const error = arrayValidate.validate(game);
 
-  if (error.error) {
-    return response.status(400);
+  if (error.error || !game) {
+    response.send(400);
   } else {
     const score = compute(game);
     const id = uuid();
-   
+
     return response.json({
       score: score,
       id: id,
@@ -33,8 +33,7 @@ app.post("/compute", (request, response) => {
 });
 
 app.post("/history", (request, response) => {
-  throw new Error("Not yet implemented")
-  
+  throw new Error("Not yet implemented");
 });
 
 export const createServer = () => http.createServer(app);

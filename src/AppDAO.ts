@@ -6,11 +6,11 @@ const sqlite3 = require('sqlite3').verbose();
         if (err) {
           return console.error(err.message);
         }else{
-          db.run('CREATE TABLE Bowl(score id)',err => {
-            if (err) {
-              return console.error(err.message);
-            }
-          });
+          // db.run('CREATE TABLE Bowl(score id)',err => {
+          //   if (err) {
+          //     return console.error(err.message);
+          //   }
+          // });
         }
 
         db.close((err) => {
